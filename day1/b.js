@@ -1,4 +1,8 @@
-const data = require('./a.data')
+const fs = require('fs')
+const data = fs.readFileSync('data.txt', 'utf8')
+  .split('\n')
+  .map(Number)
+
 const pairs = new Map()
 const desiredSum = 2020
 
