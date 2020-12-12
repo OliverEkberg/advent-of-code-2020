@@ -24,7 +24,7 @@ const recurse = (bagColour) => {
 
   // Another base case
   const bags = bagMap.get(bagColour)
-  if (!bags) return false
+  if (!bags) return 0
 
   let sum = 0
   for (const [num, colour] of bags) {
