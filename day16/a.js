@@ -6,7 +6,9 @@ const [rulesSection,, nearbyTicketsSection] = fs.readFileSync('data.txt', 'utf8'
 const fieldRx = /(.+): /
 const rangeRx = / ([0-9]+)-([0-9]+)/g
 
-const nearbyTickets = []
+nearbyTicketsSection.shift() // First line is just a separator
+const nearbyTickets = nearbyTicketsSection
+
 const ruleMap = new Map()
 
 for (const rule of rulesSection) {
@@ -19,11 +21,6 @@ for (const rule of rulesSection) {
   }
 
   ruleMap.set(field, ranges)
-}
-
-nearbyTicketsSection.shift() // First line is just a separator
-for (const nearbyTicket of nearbyTicketsSection) {
-  nearbyTickets.push(nearbyTicket)
 }
 
 const matchesAnyRule = (value) => {
