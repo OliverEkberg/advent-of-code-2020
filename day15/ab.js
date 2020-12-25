@@ -14,14 +14,14 @@ for (const startingNumber of startingNumbers) {
 let lastSpoken = startingNumbers.pop()
 while (turn <= numTurns) {
   const recentlySpokenPrevious = numbers.get(lastSpoken)
-  
+
   // Handle number spoken in previous turn
   if (recentlySpokenPrevious.length === 1) {
     lastSpoken = 0
   } else {
     lastSpoken = recentlySpokenPrevious[1] - recentlySpokenPrevious[0]
   }
-  
+
   // Handle number spoken in current turn
   let recentlySpokenCurrent = numbers.get(lastSpoken)
   if (!recentlySpokenCurrent) {
@@ -34,7 +34,7 @@ while (turn <= numTurns) {
   if (recentlySpokenCurrent.length > 2) {
     recentlySpokenCurrent.shift()
   }
-  
+
   turn++
 }
 
