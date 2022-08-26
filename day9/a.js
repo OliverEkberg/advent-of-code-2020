@@ -24,6 +24,7 @@ for (let i = preamble; i < data.length; i++) {
   const lower = i - preamble // Micro-optimization, but why not? Less duplication too!
 
   // Check preamble st values back
+  // eslint-disable-next-line no-labels
   outer:
   for (let j = lower; j < i; j++) {
     const complement = values.get(candidate - data[j])
@@ -34,6 +35,7 @@ for (let i = preamble; i < data.length; i++) {
       for (let k = 0; k < complement.length; k++) {
         if (complement[k] < i && complement[k] >= lower) {
           found = true
+          // eslint-disable-next-line no-labels
           break outer
         }
       }

@@ -13,6 +13,7 @@ const evaluate = (expression) => {
   let match = tmp.match(opRegex)
   while (match) {
     const [firstMatch] = match
+    // eslint-disable-next-line no-eval
     tmp = tmp.replace(firstMatch, eval(firstMatch))
     match = tmp.match(opRegex)
   }
